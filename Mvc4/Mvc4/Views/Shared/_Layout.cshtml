@@ -13,7 +13,96 @@
                 // when navigating from a mobile to a non-mobile page, or when clicking "back"
                 // after a form post), hence disabling it.
                 $.mobile.ajaxEnabled = false;
+
+               
+                
             });
+
+            $(document).bind('pageinit', function () {
+
+                var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+                db.transaction(pwdDB, errorCB, successCB);
+            }
+            );
+            $(document).ready(function () {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            });
+    // Wait for PhoneGap to load
+    //
+    
+
+    // Populate the database 
+    //
+
+    function clearDB(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+    }
+    function populateDB(tx) {
+        
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "123456")');
+    }
+
+    function Logoff() {
+        var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        db.transaction(clearDB, errorCB, successCB);
+        
+    }
+
+    function saveToken(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS TOKENS');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS TOKENS (id unique, data)');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "123456")');
+    }
+
+    // Query the database
+    //
+    function queryDB(tx) {
+        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+    }
+
+    function pwdDB(tx) {
+        tx.executeSql('SELECT * FROM DEMO', [], queryPwdSuccess, errorCB);
+    }
+
+    // Query the success callback
+    //
+    function querySuccess(tx, results) {
+    
+        alert(results.rows.item(i).data);
+    }
+    function queryPwdSuccess(tx, results) {
+     
+        $("#Password").val(results.rows.item(0).data);
+    }
+    // Transaction error callback
+    //
+    function errorCB(err) {
+        console.log("Error processing SQL: "+err.code);
+    }
+
+    // Transaction success callback
+    //
+    function successCB() {
+        var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        db.transaction(queryDB, errorCB);
+    }
+
+    // PhoneGap is ready
+    //
+
+    function onDeviceReady() {
+        alert("test");
+        var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+    }
+
+  
+
+
+
+
+
         </script>
     </head>
     <body>
@@ -22,8 +111,12 @@
                 @if (IsSectionDefined("Header")) {
                     @RenderSection("Header")
                 } else {
+                     @Html.Partial("_LoginPartial")
                     <h1>@ViewBag.Title</h1>
-                    @Html.Partial("_LoginPartial")
+                    if (@ViewBag.Gearlink != null)
+                    {
+                    <a href="@ViewBag.GearLink" data-icon="gear">Bewerk</a>
+                    }
                 }
             </div>
             <div data-role="content">

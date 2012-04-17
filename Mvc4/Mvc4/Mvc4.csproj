@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -79,6 +80,18 @@
     <Reference Include="System.Web.Http.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Data.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Data.Helpers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Data.4.0.20126.16343\lib\net40\System.Web.Http.Data.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -122,11 +135,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
+    <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KlantController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Gebruiker.cs">
+      <DependentUpon>Gebruiker.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gebruiker.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gebruiker.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Klant.cs">
+      <DependentUpon>Klant.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Klant.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Klant.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Product.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket.cs">
+      <DependentUpon>Ticket.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ticket.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ticket.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +231,13 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\native.history.js" />
+    <Content Include="Scripts\nav.js" />
+    <Content Include="Scripts\nav.min.js" />
+    <Content Include="Scripts\upshot.compat.knockout.js" />
+    <Content Include="Scripts\upshot.js" />
+    <Content Include="Scripts\upshot.knockout.extensions.js" />
+    <Content Include="Scripts\upshot.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -213,6 +266,61 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Gebruiker.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Gebruiker.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Klant.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Klant.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Klant.cshtml" />
+    <Content Include="Views\Klant\Index.cshtml" />
+    <Content Include="Views\Klant\Toon.cshtml" />
+    <Content Include="Views\Klant\Zoek.cshtml" />
+    <Content Include="Views\Klant\Nieuw.cshtml" />
+    <None Include="Models\Product.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Product.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Ticket.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Ticket.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Klant\Wijzig.cshtml" />
+    <Content Include="Views\Gebruiker\Index.cshtml" />
+    <Content Include="Views\Account\LogOff.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Ticket\Nieuw.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Klant.dbml.layout">
+      <DependentUpon>Klant.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Ticket.dbml.layout">
+      <DependentUpon>Ticket.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Product.dbml.layout">
+      <DependentUpon>Product.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Gebruiker.dbml.layout">
+      <DependentUpon>Gebruiker.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

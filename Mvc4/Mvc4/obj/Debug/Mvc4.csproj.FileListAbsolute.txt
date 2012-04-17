@@ -34,3 +34,9 @@ C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.WebPages.Razor.xml
 C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\obj\Debug\Mvc4.dll
 C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\obj\Debug\Mvc4.pdb
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.dll
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.EntityFramework.dll
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.Helpers.dll
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.xml
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.EntityFramework.xml
+C:\Users\Pieter\.ssh\ticketing\Mvc4\Mvc4\bin\System.Web.Http.Data.Helpers.xml

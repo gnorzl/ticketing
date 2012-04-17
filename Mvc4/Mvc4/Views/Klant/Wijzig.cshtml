@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Nieuw";
+    
+}
+
+<h2>Nieuw</h2>
+
+@using (Html.BeginForm("Update", "Klant", FormMethod.Post))
+{
+@Html.Hidden("id", (int)@ViewBag.klant.id);
+@Html.TextBox("voornaam",(string)@ViewBag.klant.voornaam);
+@Html.TextBox("achternaam",(string)@ViewBag.klant.achternaam);
+@Html.TextBox("bedrijf",(string)@ViewBag.klant.bedrijf);
+@Html.TextBox("straat",(string)@ViewBag.klant.straat);
+@Html.TextBox("nummer",(string)@ViewBag.klant.nummer);
+@Html.TextBox("postcode",(string)@ViewBag.klant.postcode);
+@Html.TextBox("gemeente",(string)@ViewBag.klant.gemeente);
+@Html.TextBox("land",(string)@ViewBag.klant.land);
+@Html.TextBox("telefoonnummer",(string)@ViewBag.klant.telefoonnummer);
+@Html.TextBox("email",(string)@ViewBag.klant.email);
+<input type="submit" value="Bijwerken"/>
+} 
+
+

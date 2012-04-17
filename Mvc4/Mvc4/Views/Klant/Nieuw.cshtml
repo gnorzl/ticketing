@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Nieuw";
+}
+
+<h2>Nieuw</h2>
+
+@using (Html.BeginForm("Insert", "Klant", FormMethod.Post))
+{
+
+@Html.TextBox("voornaam");
+@Html.TextBox("achternaam");
+@Html.TextBox("bedrijf");
+@Html.TextBox("straat");
+@Html.TextBox("nummer");
+@Html.TextBox("postcode");
+@Html.TextBox("gemeente");
+@Html.TextBox("land");
+@Html.TextBox("telefoonnummer");
+@Html.TextBox("email");
+<input type="submit" />
+} 
+
+

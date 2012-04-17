@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Klantenbeheer</li>
+    <li>@Html.ActionLink("Zoeken", "Zoek", "Klant")</li>
+    <li>@Html.ActionLink("Toevoegen", "Nieuw", "Klant")</li>
+</ul>

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Navigation</li>
+    <li>@Html.ActionLink("Nieuw ticket","Nieuw","Ticket")</li>
+    <li>@Html.ActionLink("Mijn", "Index", "Ticket")</li>
+    <li>@Html.ActionLink("Unassigned", "Unassigned", "Ticket")</li>
+    <li>@Html.ActionLink("Alle open tickets", "Open", "Ticket")</li>
+</ul>

@@ -39,9 +39,25 @@ namespace Mvc4.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+
+
+
+
+                var dataContext = new GebruikerDataContext();
+                  var gebruikers = (from m in dataContext.Gebruikers where m.token.Equals(model.Password) select m);
+                  if (gebruikers.Any())
+                  
+                     
+                  
+        //    klant.id = 2;
+           
+                
+             //   if (Membership.ValidateUser(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    Gebruiker gebruiker = gebruikers.First();
+                    model.UserName = gebruiker.emailadres;
+                    Membership.ValidateUser(gebruiker.emailadres, gebruiker.wachtwoord);
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
@@ -67,8 +83,8 @@ namespace Mvc4.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-
-            return RedirectToAction("Index", "Home");
+            return View();
+            //return RedirectToAction("Index", "Home");
         }
 
         //

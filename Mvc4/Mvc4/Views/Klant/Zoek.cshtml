@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Zoeken";
+}
+
+<h2>Zoek</h2>
+
+@using (Html.BeginForm("Zoek", "Klant", FormMethod.Post, new { id = "searchForm" }))    
+{
+    <div id="search">
+        <div id="searchbtn">
+            <input id="Search" type="submit" value="Search" />
+        </div>
+        <div id="searchtxt">
+            @Html.TextBox("zoek")
+        </div>
+    </div>
+}
+<br />
+<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ui-listview">
+		
+				@foreach (var klant in @ViewBag.klanten)
+{
+        			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right"  class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-d"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/Klant/Toon?id=@klant.id" class="ui-link-inherit"><p class="ui-li-aside ui-li-desc"><strong>6:24</strong>PM</p>
+				
+					<h3 class="ui-li-heading">@klant.voornaam @klant.achternaam</h3>
+					<p class="ui-li-desc"><strong>@klant.bedrijf</strong></p>
+					<p class="ui-li-desc">@klant.straat @klant.nummer, @klant.postcode @klant.gemeente</p>
+					
+				
+			</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+
+        
+    
+}
+		</ul>

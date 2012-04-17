@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Klant">
+  <DataContextMoniker Name="/KlantDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0fdf00fb-41cd-4341-8b87-55b3ed1740a3" absoluteBounds="6.625, 2.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/KlantDataContext/Klant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28253759-8229-46b9-84f2-67c817225682" absoluteBounds="6.64, 2.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

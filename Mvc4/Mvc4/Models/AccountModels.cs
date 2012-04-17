@@ -29,13 +29,13 @@ namespace Mvc4.Models
 
     public class LoginModel
     {
-        [Required]
+        
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Token")]
         public string Password { get; set; }
 
         [Display(Name = "Remember me?")]

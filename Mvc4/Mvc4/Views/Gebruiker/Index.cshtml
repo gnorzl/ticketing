@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Gebruikers";
+}
+
+<h2>Gebruikers</h2>
+
+<ul data-role="listview" data-theme="d" data-divider-theme="d" class="ui-listview">
+		
+				@foreach (var gebruiker in @ViewBag.gebruikers)
+{
+        			<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right"  class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-d"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/Gebruiker/Toon?id=@gebruiker.id" class="ui-link-inherit"><p class="ui-li-aside ui-li-desc"><strong>6:24</strong>PM</p>
+				
+					<h3 class="ui-li-heading">@gebruiker.voornaam @gebruiker.achternaam</h3>
+			
+					
+				
+			</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+
+        
+    
+}
+		</ul>

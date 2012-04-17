@@ -2,13 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<h2>Proxit ticketing</h2>
+
 
 <ul data-role="listview" data-inset="true">
     <li data-role="list-divider">Navigation</li>
-    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Tickets","Index","Ticket")</li>
+    <li>@Html.ActionLink("Klanten", "Index", "Klant")</li>
     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Gebruikers","Index","Gebruiker")</li>
+    <li>@Html.ActionLink("Producten","Index","Producten")</li>
+    <li>@Html.ActionLink("Zoek","Index","FSearch")</li>
 </ul>

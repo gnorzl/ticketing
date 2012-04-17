@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Proxit" Class="KlantDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PIETER-PC;Initial Catalog=Proxit;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProxitConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Klanten" Member="Klants">
+    <Type Name="Klant">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="voornaam" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="achternaam" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="bedrijf" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="straat" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nummer" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="postcode" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="gemeente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="land" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="telefoonnummer" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

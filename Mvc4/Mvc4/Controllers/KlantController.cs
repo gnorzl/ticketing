@@ -20,6 +20,26 @@ namespace Mvc4.Controllers
             return View(klanten);
         }
 
+        public ActionResult AjaxSearch(string zoek)
+        {
+
+            var dataContext = new KlantDataContext();
+              string sJSON = "";
+              JsonResult result = new JsonResult();
+            var klanten = from m in dataContext.Klants where m.voornaam.Contains(zoek) || m.achternaam.Contains(zoek) || m.straat.Contains(zoek) select m;
+            if (klanten.Any())
+            {
+                System.Web.Script.Serialization.JavaScriptSerializer oSerializer =
+                 new System.Web.Script.Serialization.JavaScriptSerializer();
+                 sJSON = oSerializer.Serialize(klanten);
+                 result.Data = klanten;
+            }
+
+           // JsonResult result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            //result.Data = sJSON;
+            return result;
+        }
         public ActionResult Toon(int? id)
         {
             var dataContext = new KlantDataContext();

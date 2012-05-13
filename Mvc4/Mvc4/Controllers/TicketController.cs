@@ -11,7 +11,10 @@ namespace Mvc4.Controllers
     {
         //
         // GET: /Ticket/
-
+        public ActionResult Toon()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

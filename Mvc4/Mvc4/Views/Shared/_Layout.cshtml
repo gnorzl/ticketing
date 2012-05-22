@@ -49,7 +49,7 @@
 
                         var obj = jQuery.parseJSON(this);
                         alert(this.voornaam);
-                        list += '<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right"  class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-d"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/Ticket/NieuwTicket?klant='+this.id+'" class="ui-link-inherit"><p class="ui-li-aside ui-li-desc"><strong>6:24</strong>PM</p>';
+                        list += '<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right"  class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-d"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/Ticket/NieuwTicket?klant=' + this.id + '" class="ui-link-inherit"><p class="ui-li-aside ui-li-desc"><strong>6:24</strong>PM</p>';
 
                         list += '<h3 class="ui-li-heading">'
                         list += this.voornaam + ' ' + this.achternaam;
@@ -57,7 +57,8 @@
                         list += '</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>';
 
                     });
-                    $("ul:jqmData(role='listview')").append(list).listview("refresh");
+                    $("ul:jqmData(role='listview')").empty();
+                    $("ul:jqmData(role='listview')").append(list).listview("refresh", true);
                 });
             }
 

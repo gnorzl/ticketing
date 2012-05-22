@@ -139,6 +139,7 @@
     <Compile Include="Controllers\GebruikerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlantController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -164,6 +165,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Product.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductCategorie.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductCategorie.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Ticket.cs">
       <DependentUpon>Ticket.dbml</DependentUpon>
@@ -288,6 +294,11 @@
       <LastGenOutput>Product.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Models\ProductCategorie.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ProductCategorie.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Models\Ticket.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Ticket.designer.cs</LastGenOutput>
@@ -299,6 +310,8 @@
     <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Ticket\Nieuw.cshtml" />
     <Content Include="Views\Ticket\Toon.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Categorie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -314,13 +327,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Gebruiker.dbml.layout">
+      <DependentUpon>Gebruiker.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Models\Product.dbml.layout">
       <DependentUpon>Product.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\Gebruiker.dbml.layout">
-      <DependentUpon>Gebruiker.dbml</DependentUpon>
+    <None Include="Models\ProductCategorie.dbml.layout">
+      <DependentUpon>ProductCategorie.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

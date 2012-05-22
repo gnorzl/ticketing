@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Proxit" Class="TicketDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=PIETER-PC;Initial Catalog=Proxit;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProxitConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Tickets" Member="Tickets">
-    <Type Name="Ticket">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="klantid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="gebruikerid" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="datetime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
-      <Column Name="prioritair" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="tickettype" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Klanten_Ticket" Member="Klanten" ThisKey="klantid" OtherKey="id" Type="Klanten" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Klanten" Member="Klantens">
     <Type Name="Klanten">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -26,6 +14,18 @@
       <Column Name="telefoonnummer" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="Klanten_Ticket" Member="Tickets" ThisKey="id" OtherKey="klantid" Type="Ticket" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tickets" Member="Tickets">
+    <Type Name="Ticket">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="klantid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gebruikerid" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="datetime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="prioritair" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tickettype" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Klanten_Ticket" Member="Klanten" ThisKey="klantid" OtherKey="id" Type="Klanten" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

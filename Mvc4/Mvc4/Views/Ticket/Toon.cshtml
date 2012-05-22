@@ -1,5 +1,13 @@
 ﻿@{
     ViewBag.Title = "Toon";
 }
+@ViewBag.id
 
 <h2>Toon</h2>
+
+Klant: @ViewBag.klant.voornaam @ViewBag.klant.achternaam
+
+                    @if (@ViewBag.klant.bedrijf != null)
+                    {
+                    @ViewBag.klant.bedrijf
+                    }

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Categorie";
+}
+
+<h2>Categorie</h2>
+@foreach (var categorie in @ViewBag.categories)
+{
+    <ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Navigation</li>
+    <li>@Html.ActionLink((String)categorie.naam,"ToonCategorie",new {categorie.id})</li>
+    <li>@Html.ActionLink("Toevoegen", "Toevoegen", "Product")</li>
+    <li>@Html.ActionLink("Zoeken", "Zoek", "Product")</li>
+</ul>
+}

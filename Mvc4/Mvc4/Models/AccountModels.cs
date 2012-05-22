@@ -33,6 +33,9 @@ namespace Mvc4.Models
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
+        public string voornaam { get; set; }
+        public string achternaam { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Token")]

@@ -56,6 +56,8 @@ namespace Mvc4.Controllers
                 {
                     Gebruiker gebruiker = gebruikers.First();
                     model.UserName = gebruiker.emailadres;
+                    model.voornaam = gebruiker.voornaam;
+                    model.achternaam = gebruiker.achternaam;
                     Membership.ValidateUser(gebruiker.emailadres, gebruiker.wachtwoord);
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
                     if (Url.IsLocalUrl(returnUrl))
